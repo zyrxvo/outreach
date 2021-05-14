@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pendulum</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// Garett Brown
+// Inspired by Daniel Shiffman (https://thecodingtrain.com/CodingChallenges/093-double-pendulum.html)
+
+const pi = 3.141592653589793238462643383279502884197
+
+// ***********************************
+//  Set the Initial Conditions Here:
+// ***********************************
+
+let L = 125;         // Length
+let m = 10;          // mass
+let theta = pi/3;  // Initial Angle
+let omega = 0;       // Initial Angular Velocity 
+let alpha = 0;       // Initial Angular Acceleration
+let b = 0.0;        // Damping Coefficient
+let g = 9.8;        // Strength of Gravity
+let dt = 0.2;
+
+// ***********************************
+
+
+
+// Used for drawing the Pendulum.
+const color = 200;
+let cx, cy;
+let buffer;
+function setup() {
+  createCanvas(window.innerWidth, window.innerHeight);
+  pixelDensity(2); // Change to 2 for retina displays.
+  cx = width / 2;
+  cy = height / 2;
+  buffer = createGraphics(width, height);
+  buffer.background(color);
+  buffer.translate(cx, cy);
+}
+
+function draw() {
+  background(color);
+  imageMode(CORNER);
+  image(buffer, 0, 0, width, height);
+  translate(cx, cy);
+  stroke(50);
+  strokeWeight(1);
+  line(-cx, 0, cx, 0);
+  line(0, -cy, 0, cy);
+
+// ***********************************
+//        Code Solution Here:
+// ***********************************
+  
+  alpha = -(g/L)*sin(theta) - b*omega;
+  omega += alpha * dt;
+  theta += omega * dt;
+  
+  // ***********************************
+  
+  // Animate the pendulum.
+  let x = L * sin(theta);
+  let y = L * cos(theta);
+  stroke(0);
+  strokeWeight(2);
+  line(0, 0, x, y);
+  fill(0);
+  ellipse(x, y, m, m);
+}
+
+</script>
+</body>
+</html>

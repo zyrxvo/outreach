@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double Pendulum | Chaos</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/093-double-pendulum.html
+// https://youtu.be/uWzPe_S-RVE
+
+// Modifications by Garett Brown
+const pi = 3.141592653589793238462643383279502884197
+
+// ***********************************
+//    Set Initial Conditions Here:
+// ***********************************
+
+// Double Pendulum A
+let r1_A = 125;
+let r2_A = 125;
+let m1_A = 10;
+let m2_A = 10;
+let theta1_A = pi/2;
+let theta2_A = pi/2;
+let omega1_A = 0;
+let omega2_A = 0;
+
+// Double Pendulum B
+let r1_B = 125;
+let r2_B = 125;
+let m1_B = 10;
+let m2_B = 10;
+let theta1_B = pi/2;
+let theta2_B = pi/2.001;
+let omega1_B = 0;
+let omega2_B = 0;
+
+let g = 9.8;
+let dt = 0.25;
+
+// ***********************************
+
+let px2_A = -1;
+let py2_A = -1;
+
+let px2_B = -1;
+let py2_B = -1;
+
+let cx, cy;
+const color = 128;
+
+let buffer;
+
+function setup() {
+  createCanvas(window.innerWidth, window.innerHeight);
+  //Issue with wrong rendering on a retina Mac. See issue: https://github.com/CodingTrain/website/issues/574
+  pixelDensity(2.0);
+  cx = width / 2;
+  cy = height / 2;
+  buffer = createGraphics(width, height);
+  buffer.background(color);
+  buffer.translate(cx, cy);
+}
+
+function draw() {
+  background(color);
+  imageMode(CORNER);
+  image(buffer, 0, 0, width, height);
+
+  let num1 = -g * (2 * m1_A + m2_A) * sin(theta1_A);
+  let num2 = -m2_A * g * sin(theta1_A - 2 * theta2_A);
+  let num3 = -2 * sin(theta1_A - theta2_A) * m2_A;
+  let num4 = omega2_A * omega2_A * r2_A + omega1_A * omega1_A * r1_A * cos(theta1_A - theta2_A);
+  let den = r1_A * (2 * m1_A + m2_A - m2_A * cos(2 * theta1_A - 2 * theta2_A));
+  let alpha1_A = (num1 + num2 + num3 * num4) / den;
+
+  num1 = 2 * sin(theta1_A - theta2_A);
+  num2 = (omega1_A * omega1_A * r1_A * (m1_A + m2_A));
+  num3 = g * (m1_A + m2_A) * cos(theta1_A);
+  num4 = omega2_A * omega2_A * r2_A * m2_A * cos(theta1_A - theta2_A);
+  den = r2_A * (2 * m1_A + m2_A - m2_A * cos(2 * theta1_A - 2 * theta2_A));
+  let alpha2_A = (num1 * (num2 + num3 + num4)) / den;
+
+  num1 = -g * (2 * m1_B + m2_B) * sin(theta1_B);
+  num2 = -m2_B * g * sin(theta1_B - 2 * theta2_B);
+  num3 = -2 * sin(theta1_B - theta2_B) * m2_B;
+  num4 = omega2_B * omega2_B * r2_B + omega1_B * omega1_B * r1_B * cos(theta1_B - theta2_B);
+  den = r1_B * (2 * m1_B + m2_B - m2_B * cos(2 * theta1_B - 2 * theta2_B));
+  let alpha1_B = (num1 + num2 + num3 * num4) / den;
+
+  num1 = 2 * sin(theta1_B - theta2_B);
+  num2 = (omega1_B * omega1_B * r1_B * (m1_B + m2_B));
+  num3 = g * (m1_B + m2_B) * cos(theta1_B);
+  num4 = omega2_B * omega2_B * r2_B * m2_B * cos(theta1_B - theta2_B);
+  den = r2_B * (2 * m1_B + m2_B - m2_B * cos(2 * theta1_B - 2 * theta2_B));
+  let alpha2_B = (num1 * (num2 + num3 + num4)) / den;
+
+  translate(cx, cy);
+  stroke(0);
+  strokeWeight(2);
+
+  let x1_A = r1_A * sin(theta1_A);
+  let y1_A = r1_A * cos(theta1_A);
+
+  let x2_A = x1_A + r2_A * sin(theta2_A);
+  let y2_A = y1_A + r2_A * cos(theta2_A);
+
+  line(0, 0, x1_A, y1_A);
+  fill(0);
+  ellipse(x1_A, y1_A, m1_A, m1_A);
+
+  line(x1_A, y1_A, x2_A, y2_A);
+  fill(0);
+  ellipse(x2_A, y2_A, m2_A, m2_A);
+
+  omega1_A += alpha1_A*dt;
+  omega2_A += alpha2_A*dt;
+  theta1_A += omega1_A*dt;
+  theta2_A += omega2_A*dt;
+
+  // omega1_A *= 0.99;
+  // omega2_A *= 0.99;
+
+  let x1_B = r1_B * sin(theta1_B);
+  let y1_B = r1_B * cos(theta1_B);
+
+  let x2_B = x1_B + r2_B * sin(theta2_B);
+  let y2_B = y1_B + r2_B * cos(theta2_B);
+  
+  stroke(255);
+  line(0, 0, x1_B, y1_B);
+  fill(255);
+  ellipse(x1_B, y1_B, m1_B, m1_B);
+
+  line(x1_B, y1_B, x2_B, y2_B);
+  fill(255);
+  ellipse(x2_B, y2_B, m2_B, m2_B);
+
+  omega1_B += alpha1_B*dt;
+  omega2_B += alpha2_B*dt;
+  theta1_B += omega1_B*dt;
+  theta2_B += omega2_B*dt;
+
+  // omega1_B *= 0.99;
+  // omega2_B *= 0.99;
+
+  // buffer.stroke(0);
+//   let strk = 150 * sin(frameCount * 2 * PI / 150);
+  if (frameCount > 1) {
+    buffer.stroke(0);
+    buffer.line(px2_A, py2_A, x2_A, y2_A);
+    buffer.stroke(255);
+    buffer.line(px2_B, py2_B, x2_B, y2_B);
+  }
+
+  px2_A = x2_A;
+  py2_A = y2_A;
+
+  px2_B = x2_B;
+  py2_B = y2_B;
+}
+</script>
+</body>
+</html>
