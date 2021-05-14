@@ -6,6 +6,8 @@
 # Garett Brown
 # Inspired by Daniel Shiffman (https://thecodingtrain.com/CodingChallenges/093-double-pendulum.html)
 
+from vpython import * # Delete this line for Trinket
+
 pi = 3.141592653589793238462643383279502884197
 
 # ***********************************

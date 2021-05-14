@@ -1,7 +1,9 @@
-GlowScript 3.1 VPython
+# GlowScript 3.1 VPython
 
 # Open this code in Trinket
 # https://trinket.io/library/trinkets/0f411818d9
+
+from vpython import * # Delete this line for Trinket
 
 # ***********************************
 #  Set the Initial Conditions Here:

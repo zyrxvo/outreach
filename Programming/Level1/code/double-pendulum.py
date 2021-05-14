@@ -1,4 +1,4 @@
-GlowScript 3.1 VPython
+# GlowScript 3.1 VPython
 
 # Open this code in Trinket
 # https://trinket.io/library/trinkets/f0de22daa9
@@ -8,6 +8,8 @@ GlowScript 3.1 VPython
 # https://youtu.be/uWzPe_S-RVE
 
 # Modifications by Garett Brown
+
+from vpython import * # Delete this line for Trinket
 
 pi = 3.141592653589793238462643383279502884197
 
