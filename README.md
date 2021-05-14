@@ -3,13 +3,13 @@
 
 These resources are free to use, modify, and distribute. Feel free to download everything, or just the presentations. The presentations are currently available as Keynote presentations with embedded videos and images, but they are also available as PDFs. If you would like them as PowerPoint presentations please let me know by [opening an issue](https://github.com/zyrxvo/outreach/issues) or emailing me at gbrown@physics.utoronto.ca.
 
-## Programming
+## Programming Workshops
 
 ### [Level 0: Objects in Motion](https://github.com/zyrxvo/outreach/tree/main/Programming/Level0)
 
 **Approximate Length:** 1-2 hours
 
-**Description:** Jump straight into programming with MIT's Scratch – an online platform to learn how to code using visual blocks. Go through, step-by-step, to make the cat move in a line and eventually a circle. Then transfer this knowledge into Python by writing your first Python program to do the same thing. Finish by playing around with MinuteLabs [Chaotic Planets](http://labs.minutelabs.io/ Chaotic-Planets/). 
+**Description:** Jump straight into programming with MIT's Scratch – an online platform to learn how to code using visual blocks. Go through, step-by-step, to make the cat move in a line and eventually a circle. Then transfer this knowledge into Python by writing your first Python program to do the same thing. Finish by playing around with MinuteLabs [Chaotic Planets](http://labs.minutelabs.io/Chaotic-Planets/). 
 
 **Requirements:** A computer and browser with internet access for each participant. No programming experience required (MIT Scratch and Python). Tablets/iPads can work, but the experience is best with a desktop browser.
 
