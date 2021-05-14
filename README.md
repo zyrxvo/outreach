@@ -5,7 +5,7 @@ These resources are free to use, modify, and distribute. Feel free to download e
 
 ## Programming
 
-### [Level 0: Objects in Motion](https://github.com/zyrxvo/outreach/tree/main/Programming/Level 0)
+### [Level 0: Objects in Motion](https://github.com/zyrxvo/outreach/tree/main/Programming/Level0)
 
 **Approximate Length:** 1-2 hours
 
@@ -15,7 +15,7 @@ These resources are free to use, modify, and distribute. Feel free to download e
 
 **Notes:** The workshop uses the online coding platforms [MIT's Scratch](https://scratch.mit.edu) and [Trinket](https://trinket.io/). The workshop utilizes the free tiers of these platforms to provide a no-mess approach to get started with programming.
 
-### [Level 1: The Motion of Oscillators and Pendulums using Computers (Coding Physics)](https://github.com/zyrxvo/outreach/tree/main/Programming/Level 1)
+### [Level 1: The Motion of Oscillators and Pendulums using Computers (Coding Physics)](https://github.com/zyrxvo/outreach/tree/main/Programming/Level1)
 
 **Approximate Length:** 1-2 hours
 
@@ -25,7 +25,7 @@ These resources are free to use, modify, and distribute. Feel free to download e
 
 **Notes:** The workshop uses the online coding platforms [Trinket](https://trinket.io/) and [p5.js](https://editor.p5js.org/). The workshop utilizes the free tiers of these platforms to provide a no-mess approach to get started with programming.
 
-### [Level 2: Gravity and the Three Body Problem](https://github.com/zyrxvo/outreach/tree/main/Programming/Level 2)
+### [Level 2: Gravity and the Three Body Problem](https://github.com/zyrxvo/outreach/tree/main/Programming/Level2)
 
 **Approximate Length:** 1.5-3 hours
 
