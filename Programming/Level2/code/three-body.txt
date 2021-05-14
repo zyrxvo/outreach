@@ -1,5 +1,8 @@
 GlowScript 3.1 VPython
 
+# Open this code in Trinket
+# https://trinket.io/library/trinkets/424bbef5df
+
 # ***********************************
 #  Set the Initial Conditions Here:
 # ***********************************

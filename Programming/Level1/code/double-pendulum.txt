@@ -1,5 +1,8 @@
 GlowScript 3.1 VPython
 
+# Open this code in Trinket
+# https://trinket.io/library/trinkets/f0de22daa9
+
 # Daniel Shiffman
 # https://thecodingtrain.com/CodingChallenges/093-double-pendulum.html
 # https://youtu.be/uWzPe_S-RVE
