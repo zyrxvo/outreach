@@ -1,0 +1,88 @@
+<!-- 
+# ***************************************************
+# Objects in Motion
+# Garett Brown, 14 May 2021
+# Learning how to solve physics problems with computers.
+# JavaScript
+# ***************************************************
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mass on a Spring</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// Garett Brown
+// Inspired by Daniel Shiffman (https://thecodingtrain.com/CodingChallenges/093-double-pendulum.html)
+
+const pi = 3.141592653589793238462643383279502884197
+
+// ***********************************
+//  Set the Initial Conditions Here:
+// ***********************************
+
+let x = -100
+let y = 0
+let t = 0.1
+
+// ***********************************
+
+
+
+// Used for drawing the Object and background.
+const radius = 15;
+const color = 200;
+let cx, cy;
+let buffer;
+function setup() {
+  createCanvas(window.innerWidth, window.innerHeight);
+  pixelDensity(1.0);
+  cx = width / 2;
+  cy = height / 2;
+  buffer = createGraphics(width, height);
+  buffer.background(color);
+  buffer.translate(cx, cy);
+}
+
+function draw() {
+  background(color);
+  imageMode(CORNER);
+  image(buffer, 0, 0, width, height);  
+  translate(cx, cy);
+  stroke(50);
+  strokeWeight(1);
+  line(-cx, 0, cx, 0);
+  line(0, -cy, 0, cy);
+
+  
+  
+// ***********************************
+//        Code Solution Here:
+// ***********************************
+  
+  
+  x = x + (t * (-1) * y);
+  y = y + (t * x);  
+
+  
+// ***********************************
+  
+
+  // Animate the Object.
+  fill(0);
+  stroke(0);
+  ellipse(x, -y, radius, radius);
+}
+
+
+</script>
+</body>
+</html>
