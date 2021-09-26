@@ -5,8 +5,7 @@
 # Inspired by Daniel Shiffman (https://thecodingtrain.com/CodingChallenges/093-double-pendulum.html)
 ########################################################
 
-# Open this code in Trinket
-# https://trinket.io/library/trinkets/04931fe5c8
+# This script was designed to run locally using Matplotlib instead of Glowscript.
 
 import numpy as np
 import matplotlib.pyplot as plt
